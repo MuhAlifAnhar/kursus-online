@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+      background-color: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    }
+
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      background-color: #2980b9;
+      color: #fff;
+      border-radius: 10px 10px 0 0;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background-color: #2980b9;
+      border-color: #2980b9;
+    }
+
+    .btn-primary:hover {
+      background-color: #2471a3;
+      border-color: #2471a3;
+    }
+
+    .navbar {
+      background-color: #2980b9;
+      border: none;
+      border-radius: 0;
+      font-weight: 400;
+  }
+
+  .navbar-brand, .navbar-nav .nav-link {
+    color: white;
+  }
+
+  .navbar-brand:hover, .navbar-nav .nav-link:hover {
+    color: #f0f0f0;
+  }
+
+  .navbar-nav .nav-link {
+    padding-right: 20px;
+  }
+
+  .selamat{
+    font-weight: 600;
+    font-size: 27px;
+  }
+
+  .selamatt{
+    font-weight: 500;
+    font-size: 15px;
+    padding-left: 20px;
+  }
+
+  .datang{
+    font-weight: 400;
+    font-size: 15px;
+    padding-bottom: 100px
+  }
+
+  .datanga{
+    font-weight: 400;
+    font-size: 15px;
+    padding-bottom: 80px
+  }
+
+  .bg-color{
+    background-color: #f0f0f0;
+    position: relative;
+  }
+
+  .saya{
+    background-color: #2980b9;
+    color: white;
+    position: absolute; /* Menjadikan posisi elemen absolute terhadap elemen tetua */
+    top: 210px; /* Menggeser elemen ke atas sejauh 30 piksel */
+    left: 200px; /* Menjadikan elemen berada di ujung kiri */
+    width: 100%; /* Menyesuaikan lebar elemen dengan wadahnya */
+    webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+    moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+  }
+
+  .say{
+    background-color: #2980b9;
+    color: white;
+    position: absolute; /* Menjadikan posisi elemen absolute terhadap elemen tetua */
+    top: 125px; /* Menggeser elemen ke atas sejauh 30 piksel */
+    left: 200px; /* Menjadikan elemen berada di ujung kiri */
+    width: 100%; /* Menyesuaikan lebar elemen dengan wadahnya */
+    webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+    moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+  }
+
+  .ruang{
+    background-color: #2980b9;
+    color: white;
+    webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+    moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+  }
+
+  .gambar{
+    width: 625px; /* Ukuran gambar 100% dari lebar kontainer */
+    height: auto; /* Tinggi gambar menyesuaikan proporsi aspek */
+  }
+
+  .ruangg{
+    padding-top: 180px;
+  }
+
+.iconee
+{
+  width: 135px;
+  height: 135px;
+  background-color: white;
+}
+
+.icone
+{
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+  moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+}
+
+.bi{
+  font-size: 32px;
+}
+
+.kemampuan{
+  font-size: 17px;
+}
+
+.belajarrr{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.belajar{
+  margin-top: 140px;
+  margin-bottom: 30px;
+}
+
+.selama{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.bg-blue{
+  background-color: #2980b9;
+  color: white;
+}
+
+.pelajaran{
+  font-weight: 600;
+  font-size: 27px;
+}
+
+.bii{
+  font-size: 350px;
+}
+
+.biii{
+  font-size: 40px;
+}
+
+.biiii{
+  font-size: 18px;
+}
+
+.fas{
+  font-size: 32px;
+}
