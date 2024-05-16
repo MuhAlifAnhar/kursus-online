@@ -72,15 +72,5 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('amirah123'),
             'role_id' => 2
         ]);
-
-        DB::table('materi')->insert([
-            'judul' => 'ganrang123',
-            'kategori' => 'Bahasa Inggris',
-            'deskripsi' => 'amirah xxx',
-            'konten' => 'amirah sedang bermain bersamna pak husein di ruang dosen',
-            'user_id' => 6
-        ]);
-
-     
     }
 }

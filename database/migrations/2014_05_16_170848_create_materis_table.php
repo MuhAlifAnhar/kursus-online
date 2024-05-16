@@ -15,12 +15,13 @@ class CreateMaterisTable extends Migration
     {
         Schema::create('materi', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->enum('kategori', ['Bahasa Indonesia', 'Matematika', 'Ips', 'Bahasa Inggris', 'Ipa', 'Penalaran Umum']);
+            $table->string('nama_bab');
+            $table->text('isi_bab');
             $table->text('deskripsi');
-            $table->text('konten');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('id_quiz');
+            $table->foreign('id_quiz')->references('id')->on('quizs');
+            $table->unsignedBigInteger('id_matpel');
+            $table->foreign('id_matpel')->references('id')->on('matpel');
             $table->timestamps();
         });
     }

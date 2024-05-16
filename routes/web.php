@@ -16,7 +16,6 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/home', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'indexe']);
 
