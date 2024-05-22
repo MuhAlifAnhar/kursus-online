@@ -18,8 +18,19 @@ class LoginController extends Controller
             'password' => ['required']
         ]);
          if(Auth::attempt($validasi)){
-            $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+        //  jika dia guru
+          if(Auth::user()->role_id === 1 ){
+                $request->session()->regenerate();
+                return redirect()->intended('/dashboard');
+           }
+          if(Auth::user()->role_id === 2 ){
+                $request->session()->regenerate();
+                return redirect()->intended('/guruu');
+           }
+           if(Auth::user()->role_id === 3 ){
+                $request->session()->regenerate();
+                return redirect()->intended('/admin');
+           }
          }
 
          return back()->with('loginError','Login gagal!');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMaterisTable extends Migration
+class Materi extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateMaterisTable extends Migration
      */
     public function up()
     {
-        Schema::create('materi', function (Blueprint $table) {
+
+        
+         Schema::create('materi', function (Blueprint $table) {
             $table->id();
             $table->string('nama_bab');
             $table->text('isi_bab');
-            $table->text('deskripsi');
             $table->unsignedBigInteger('id_quiz');
             $table->foreign('id_quiz')->references('id')->on('quizs');
             $table->unsignedBigInteger('id_matpel');
@@ -33,6 +34,6 @@ class CreateMaterisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materi');
+        //
     }
 }

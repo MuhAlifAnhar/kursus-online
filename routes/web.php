@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MatpelController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -26,4 +28,15 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->Middleware('auth');
 
-Route::get('dashboard/{slug}', [DashboardController::class, 'guru'])->Middleware('auth');
+Route::get('/guruu', [DashboardController::class, 'guru'])->Middleware('auth');
+Route::resource('/guru/matapelajaran', MatpelController::class)->Middleware('auth');
+Route::resource('/guru/quiz', QuizController::class)->Middleware('auth');
+// Route::resource('/guru/matapelajaran/create', MatpelController::class)->Middleware('auth');
+
+// Route::get('/matapelajaran', [DashboardController::class, 'matapelajaran'])->Middleware('auth');
+
+Route::get('/admin', [DashboardController::class, 'admin'])->Middleware('auth');
+
+Route::get('dashboard/{slug}', [DashboardController::class, 'matpel'])->Middleware('auth');
+
+Route::get('dashboard/{dosen}/{materi}', [DashboardController::class, 'materi'])->Middleware('auth');

@@ -10,4 +10,14 @@ class Materi extends Model
     protected $guarded = [
         'id'
     ];
+
+    // public function quiz()
+    // {
+    //     return $this->belongsTo(Quiz::class, 'id_quiz');
+    // }
+
+    // public function matpel()
+    // {
+    //     return $this->belongsTo(Matpel::class, 'id_matpel');
+    // }
 }

@@ -21,6 +21,11 @@ class User extends Authenticatable
         'id'
     ];
 
+    // public function matpels()
+    // {
+    //     return $this->hasMany(Matpel::class, 'id_guru');
+    // }
+
     /**
      * The attributes that should be hidden for serialization.
      *

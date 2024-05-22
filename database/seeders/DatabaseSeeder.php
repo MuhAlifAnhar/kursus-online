@@ -72,5 +72,23 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('amirah123'),
             'role_id' => 2
         ]);
+
+        DB::table('matpel')->insert([
+            'nama_matpel' => 'Bahasa Inggris',
+            'id_guru' => 6
+        ]);
+
+        // DB::table('quizs')->insert([
+        //     'soal_1' => '1. Siapakah oshi kamu',
+        //     'pilihan_1' => 'a. zee',
+        //     'jawaban_1' => 'a'
+        // ]);
+
+        // DB::table('materi')->insert([
+        //     'nama_bab' => 'Dasar Bahasa Inggris',
+        //     'isi_bab' => 'Bahasa inggris adalah bahasa inggris',
+        //     'id_quiz' => 1,
+        //     'id_matpel' => 1,
+        // ]);
     }
 }

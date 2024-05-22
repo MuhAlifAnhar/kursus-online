@@ -9,7 +9,13 @@ class Quiz extends Model
 {
     use HasFactory;
 
+    protected $table = "quizs";
     protected $guarded = [
         'id'
     ];
+
+    // public function materi()
+    // {
+    //     return $this->hasMany(Materi::class, 'id_quiz');
+    // }
 }
