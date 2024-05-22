@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\quiz;
+use App\Models\Quiz;
 use Illuminate\Http\Request;
 
 class QuizController extends Controller
@@ -15,7 +15,7 @@ class QuizController extends Controller
     public function index()
     {
         $this->authorize('isGuru');
-        $quizzes = Quiz::all(); 
+        $quizzes = Quiz::all();
         return view('quiz', [
             'quiz' => $quizzes
         ]);
@@ -28,7 +28,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-         $this->authorize('isGuru');
+        $this->authorize('isGuru');
         return view('quizcreate');
     }
 
@@ -40,7 +40,7 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
+        $request->validate([
             'soal_1' => 'required|string|max:255',
             'pilihan_1a' => 'required|string|max:255',
             'pilihan_1b' => 'required|string|max:255',
@@ -104,7 +104,7 @@ class QuizController extends Controller
             'pilihan_5c' => $request->pilihan_5c,
             'pilihan_5d' => $request->pilihan_5d,
             'jawaban_5' => $request->jawaban_5,
-            
+
         ]);
 
         // Redirect ke halaman lain atau tampilkan pesan sukses
