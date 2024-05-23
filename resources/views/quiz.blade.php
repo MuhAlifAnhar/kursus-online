@@ -14,8 +14,8 @@
         <a href="/guru/quiz/create" class="btn btn-success"><span data-feather="plus"></span> Create materi</a>
     </div>
 
-    <div class="col-lg-8">
-        <table id="myTable" class="display">
+    <div class="col-lg-8 overflow-auto ">
+        <table id="myTable" class="display ">
             <thead>
                 <tr>
                     <th>No</th>
@@ -117,16 +117,30 @@
                         <td>{{ $nama->pilihan_10 }}</td>
                         <td>{{ $nama->jawaban_10 }}</td> --}}
                         <td>
-                            <a href="/guru/quiz/create" class="badge bg-success"><span data-feather="plus"></span></a>
-                            <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
-                            <form action="{{ url('/guru/quiz/' . $nama->id) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="badge bg-danger border-0"
-                                    onclick="return  confirm('Kamu yakin mau hapus mata pelajaran?')">
-                                    <span data-feather="x-circle"></span> Hapus
-                                </button>
-                            </form>
+                            <div class="d-flex">
+                                <div class="pe-2">
+                                    <a href="/guru/quiz/create" class="badge bg-success"><span
+                                            data-feather="plus"></span></a>
+                                </div>
+                                <div class="pe-2">
+                                    {{-- <a href="{{ url('guru/quiz', $nama->id) }}/edit" class="badge bg-warning"><span
+                                            data-feather="edit"></span></a> --}}
+
+                                    <a href="{{ url('guru/quiz/' . $nama->id . '/edit') }}" class="badge bg-warning">
+                                        <span data-feather="edit"></span>
+                                    </a>
+                                </div>
+                                <div class="pe-2">
+                                    <form action="{{ url('/guru/quiz/' . $nama->id) }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="badge bg-danger border-0"
+                                            onclick="return  confirm('Kamu yakin mau hapus quiz?')">
+                                            <span data-feather="x-circle"></span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

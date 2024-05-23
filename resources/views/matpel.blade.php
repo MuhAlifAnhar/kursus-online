@@ -30,13 +30,11 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $nama->nama_matpel }}</td>
                         <td>
-                            {{-- <a href="/guru/matapelajaran/create" class="badge bg-success"><span data-feather="plus"></span></a> --}}
-                            {{-- <a href="" class="badge bg-warning"><span data-feather="edit"></span></a> --}}
                             <form action="{{ url('/guru/matapelajaran/' . $nama->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="badge bg-danger border-0"
-                                    onclick="return  confirm('Kamu yakin mau hapus mata pelajaran?')">
+                                    onclick="return confirm('Kamu yakin mau hapus mata pelajaran?')">
                                     <span data-feather="x-circle"></span> Hapus
                                 </button>
                             </form>

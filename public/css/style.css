@@ -184,3 +184,8 @@ body {
 .fas{
   font-size: 32px;
 }
+
+#myTable
+{
+  overflow: scroll;
+}
