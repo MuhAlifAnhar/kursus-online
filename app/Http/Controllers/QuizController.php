@@ -147,7 +147,7 @@ class QuizController extends Controller
      * @param  \App\Models\Quiz  $quiz
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Quiz $quiz)
 {
     $validatedData = $request->validate([
         'nama_1' => 'required|string|max:255',
@@ -182,7 +182,7 @@ class QuizController extends Controller
         'jawaban_5' => 'required|in:a,b,c,d'
     ]);
 
-    Quiz::update([
+    $quiz->update([
         'soal_1' => $validatedData['nama_1'],
         'pilihan_1a' => $validatedData['pilihan_1a'],
         'pilihan_1b' => $validatedData['pilihan_1b'],
