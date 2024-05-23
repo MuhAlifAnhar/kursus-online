@@ -3,7 +3,11 @@
 @section('body')
     <h1>Dashboard Edit Quiz</h1>
     <p>Welcome, {{ auth()->user()->nama }} to the Edit quiz dashboard.</p>
-
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div>{{ $error }}</div>
+        @endforeach
+    @endif
     <div class="col-lg-8">
         <form method="post" action="{{ url('guru/quiz/' . $quiz->id) }}">
             @method('put')

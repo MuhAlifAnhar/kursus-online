@@ -39,7 +39,7 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
+        $request->validate([
             'nama_1' => 'required|string|max:255',
             'pilihan_1a' => 'required|string|max:255',
             'pilihan_1b' => 'required|string|max:255',
@@ -105,7 +105,7 @@ class QuizController extends Controller
             'pilihan_5d' => $request->pilihan_5d,
             'jawaban_5' => $request->jawaban_5,
             'guru_id' => auth()->user()->id,
-            
+
         ]);
 
         // Redirect ke halaman lain atau tampilkan pesan sukses
@@ -183,8 +183,6 @@ class QuizController extends Controller
             'jawaban_5' => 'required|in:a,b,c,d'
         ]);
 
-        dd($request);
-
         $quiz->update([
         'soal_1' => $request->nama_1,
         'pilihan_1a' => $request->pilihan_1a,
@@ -219,7 +217,7 @@ class QuizController extends Controller
         'guru_id' => auth()->user()->id,
         ]);
 
-        return redirect('/guru/quiz')->with('success', 'Quis berhasil di update.');
+        return redirect('/guru/quiz')->with('success', 'Quiz berhasil diupdate.');
     }
 
     /**
@@ -231,8 +229,8 @@ class QuizController extends Controller
     public function destroy($id)
     {
 
-        Quiz::where('id', $id) ->delete();
-        
+        Quiz::where('id', $id)->delete();
+
         return redirect('/guru/quiz')->with('success', 'Quiz has been deleted!');
     }
 }
