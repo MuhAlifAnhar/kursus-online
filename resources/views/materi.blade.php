@@ -1,42 +1,78 @@
 @extends('dashboard.index')
 
 @section('logine')
-    <title>Materi</title>
+    <title>List Materi</title>
 @endsection
 
 @section('login')
     <div class="bg-color rounded-bottom-4">
         <div class="container costum-box">
-            <h1 class="selamat pt-4">Hi, {{ auth()->user()->nama }}!</h1>
-            <p class="datanga m-0">Terima kasih telah memilih pengajar! Sekarang, Anda dapat melanjutkan perjalanan belajar
-                Anda dengan memilih mata pelajaran yang ingin Anda pelajari selanjutnya.</p>
+            @if (session('isPassed') !== null)
+                @if (session('isPassed'))
+                    <div class="alert alert-success" role="alert">
+                        Selamat, Anda lulus dengan skor {{ session('score') }}%.
+                    </div>
+                @else
+                    <div class="alert alert-danger" role="alert">
+                        Maaf, Anda tidak lulus. Skor Anda {{ session('score') }}%.
+                    </div>
+                @endif
+            @else
+                <h1 class="selamat pt-4">Hi, {{ auth()->user()->nama }}!</h1>
+                <p class="datanga m-0">Terima kasih telah memilih mata pelajaran! Sekarang, Anda dapat melanjutkan perjalanan
+                    belajar
+                    Anda dengan memilih materi yang ingin Anda pelajari selanjutnya.</p>
+            @endif
         </div>
+
         <div class="container sayaa">
             <div class="container say rounded-4 m-0 p-0">
-                <h1 class="selamatt pt-3 pb-3">Mata pelajaran:</h1>
-                <div class="ps-4 d-flex">
-                    @if ($pemateri->count())
-                        @foreach ($pemateri as $data)
-                            <a href="{{ url('dashboard/' . $data->nama . '/' . $data->nama_matpel) }}"
-                                class="text-decoration-none pe-5">
+                <h1 class="selamatt pt-3 pb-3">Materi:</h1>
+                <div class="ps-4 d-flex flex-wrap">
+                    @if ($datu->count())
+                        @foreach ($datu as $data)
+                            <a href="{{ url('dashboard/' . $data->nama_guru . '/' . $data->nama_matpel . '/' . $data->nama_bab . '?selectedMateriId=' . $data->id) }}"
+                                class="text-decoration-none pe-5 d-block">
                                 <div class="card-icon iconee border border-danger rounded-2 mb-3">
-                                    <div class="icon-header d-flex justify-content-center align-content-center pt-4">
-                                        <i class="bi bi-file-earmark-text biii"></i>
-                                    </div>
-                                    <div class="icon-body text-center">
-                                        <h1 class="kemampuan">{{ $data->nama_matpel }}</h1>
+                                    {{-- <div class="icon-header d-flex justify-content-center align-content-center pt-4">
+                                            <i class="bi bi-file-earmark-text biii"></i>
+                                        </div> --}}
+                                    <div class="icon-body text-center pt-3">
+                                        <h1 class="kemampuan">{{ $data->nama_bab }}</h1>
                                     </div>
                                 </div>
                             </a>
+                            @if ($loop->first)
+                                <a href="{{ url('dashboard/quiz/' . $data->nama_guru . '/' . $data->nama_matpel) }}"
+                                    class="text-decoration-none pe-5 d-block">
+                                    <div class="card-icon iconee border border-danger rounded-2 mb-3">
+                                        {{-- <div class="icon-header d-flex justify-content-center align-content-center pt-4">
+                                                <i class="bi bi-file-earmark-text biii"></i>
+                                            </div> --}}
+                                        <div class="icon-body text-center pt-3">
+                                            <h1 class="kemampuan">Quiz</h1>
+                                        </div>
+                                    </div>
+                                </a>
+                            @endif
                         @endforeach
                     @else
-                        <p class="text-center belum fs-4">Belum Ada Mata Pelajaran</p>
+                        <p class="text-center belum fs-4">Belum Ada Materi</p>
                     @endif
                 </div>
             </div>
         </div>
+        <!-- Progress Section -->
+        <div class="container progres">
+            <h2 class="selamat">Progres Belajar Anda:</h2>
+            <div class="progress">
+                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p id="progressText" class="text-center text-bold mt-2">0% selesai</p>
+        </div>
     </div>
-    <div class="container belajar">
+    <div class="container belaja">
         <h1 class="selama pt-5">Kenapa harus belajar di sini?</h1>
     </div>
     <div class="bg-blue pt-5 pb-3">
@@ -118,4 +154,17 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const totalMateri = {{ $datu->count() }} + 1; // Termasuk kuis
+            const materiSelesai = {{ $completedMateri }};
+            const progressPercentage = (materiSelesai / totalMateri) * 100;
+
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            progressBar.style.width = progressPercentage + '%';
+            progressBar.setAttribute('aria-valuenow', progressPercentage);
+            progressText.innerText = progressPercentage.toFixed(0) + '% selesai';
+        });
+    </script>
 @endsection

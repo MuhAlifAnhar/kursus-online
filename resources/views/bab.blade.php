@@ -1,20 +1,34 @@
 @extends('dashboard.index')
 
 @section('logine')
-    <title>Materi</title>
+    <title>Mata Pelajaran</title>
 @endsection
 
 @section('login')
     <div class="bg-color rounded-bottom-4">
         <div class="container costum-box">
-            <h1 class="selamat pt-4">Hi, {{ auth()->user()->nama }}!</h1>
-            <p class="datanga m-0">Terima kasih telah memilih pengajar! Sekarang, Anda dapat melanjutkan perjalanan belajar
-                Anda dengan memilih mata pelajaran yang ingin Anda pelajari selanjutnya.</p>
+            @if (session('isPassed') !== null)
+                @if (session('isPassed'))
+                    <div class="alert alert-success" role="alert">
+                        Selamat, Anda lulus dengan skor {{ session('score') }}%.
+                    </div>
+                @else
+                    <div class="alert alert-danger" role="alert">
+                        Maaf, Anda tidak lulus. Skor Anda {{ session('score') }}%.
+                    </div>
+                @endif
+            @else
+                <h1 class="selamat pt-4">Hi, {{ auth()->user()->nama }}!</h1>
+                <p class="datanga m-0">Terima kasih telah memilih pengajar! Sekarang, Anda dapat melanjutkan perjalanan
+                    belajar
+                    Anda dengan memilih mata pelajaran yang ingin Anda pelajari selanjutnya.</p>
+            @endif
         </div>
+
         <div class="container sayaa">
             <div class="container say rounded-4 m-0 p-0">
                 <h1 class="selamatt pt-3 pb-3">Mata pelajaran:</h1>
-                <div class="ps-4 d-flex">
+                <div class="ps-4 d-flex flex-wrap">
                     @if ($pemateri->count())
                         @foreach ($pemateri as $data)
                             <a href="{{ url('dashboard/' . $data->nama . '/' . $data->nama_matpel) }}"

@@ -11,7 +11,7 @@
     @endif
 
     <div class="pb-3">
-        <a href="/guru/quiz/create" class="btn btn-success"><span data-feather="plus"></span> Create materi</a>
+        <a href="/guru/quiz/create" class="btn btn-success"><span data-feather="plus"></span> Create quiz</a>
     </div>
 
     <div class="col-lg-8 overflow-auto ">

@@ -21,9 +21,24 @@ class User extends Authenticatable
         'id'
     ];
 
+    public function hasil()
+    {
+        return $this->hasMany(Hasil::class, 'user_id', 'id');
+    }
+
+    // public function materiUsers()
+    // {
+    //     return $this->hasMany(Hasil::class, 'user_id', 'id');
+    // }
+
     // public function matpels()
     // {
     //     return $this->hasMany(Matpel::class, 'id_guru');
+    // }
+
+    // public function user()
+    // {
+    //     return $this->hasMany(Quiz::class, 'guru_id');
     // }
 
     /**

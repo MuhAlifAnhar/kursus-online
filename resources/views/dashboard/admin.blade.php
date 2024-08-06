@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guru Dashboard</title>
+    <title>Super Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
     <script src="https://unpkg.com/feather-icons"></script>
@@ -56,10 +56,9 @@
 
 <body>
     <div class="sidebar">
-        <h2>Guru</h2>
-        <a href="/guru/matapelajaran">Mata Pelajaran</a>
-        <a href="/guru/materi">Materi</a>
-        <a href="/guru/quiz">Quiz</a>
+        <h2>Super Admin</h2>
+        <a href="/super/admin">Akun Guru</a>
+        <a href="/super/user">Akun Siswa</a>
         <form action="/logout" method="post">
             @csrf
             <button type="submit" class="dropdown-item">
@@ -71,7 +70,7 @@
     <div class="content">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/guruu">Guru Dashboard</a>
+                <a class="navbar-brand" href="/guruu">Super Admin Dashboard</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -133,6 +132,21 @@
             output.innerHTML = cleanContent;
         }
     </script>
+    {{-- <script>
+        function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            ofReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+    </script> --}}
 </body>
 
 </html>

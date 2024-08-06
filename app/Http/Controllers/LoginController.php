@@ -29,7 +29,7 @@ class LoginController extends Controller
            }
            if(Auth::user()->role_id === 3 ){
                 $request->session()->regenerate();
-                return redirect()->intended('/admin');
+                return redirect()->intended('/super');
            }
          }
 

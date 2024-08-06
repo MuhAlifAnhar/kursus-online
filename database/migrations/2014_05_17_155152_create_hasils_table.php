@@ -13,7 +13,7 @@ class CreateHasilsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hasil', function (Blueprint $table) {
+        Schema::create('hasile', function (Blueprint $table) {
             $table->id();
             $table->time('time');
             $table->unsignedBigInteger('id_quiz');

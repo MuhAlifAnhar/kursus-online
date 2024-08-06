@@ -18,4 +18,9 @@ class Quiz extends Model
     // {
     //     return $this->hasMany(Materi::class, 'id_quiz');
     // }
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'guru_id');
+    // }
+    
 }

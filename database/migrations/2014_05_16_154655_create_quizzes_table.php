@@ -60,6 +60,8 @@ class CreateQuizzesTable extends Migration
             // $table->text('soal_10');
             // $table->text('pilihan_10');
             // $table->text('jawaban_10'); 
+            // $table->unsignedBigInteger('guru_id');
+            // $table->foreign('guur_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

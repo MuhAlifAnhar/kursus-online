@@ -7,14 +7,32 @@
 @section('login')
     <div class="bg-color rounded-bottom-4">
         <div class="container costum-box">
-            <h1 class="selamat pt-4">Hi, {{ auth()->user()->nama }}!</h1>
-            <p class="datang m-0">Selamat datang di platform belajar online kami, tempat dimana pengetahuan dan pemahaman
-                bertemu dengan teknologi untuk menciptakan pengalaman belajar yang menyenangkan dan efektif. Di sini, kami
-                menyediakan akses ke berbagai materi pembelajaran yang dikurasi secara cermat, disampaikan melalui
-                pengajaran interaktif, dan didukung oleh teknologi terkini. Mulai dari mata pelajaran akademik hingga
-                keterampilan praktis, kami berkomitmen untuk mendukung perkembangan Anda dengan cara yang sesuai dan
-                menarik. Bergabunglah dengan komunitas belajar kami dan jelajahi ragam sumber daya pendidikan yang dirancang
-                untuk membantu Anda meraih kesuksesan di setiap langkah perjalanan pendidikan Anda.</p>
+            @if (session('isPassed') !== null)
+                @if (session('isPassed'))
+                    <div class="adakah pt-3">
+                        <div class="alert alert-success" role="alert">
+                            Selamat, Anda lulus dengan skor {{ session('score') }}%.
+                        </div>
+                    </div>
+                @else
+                    <div class="adakah pt-3">
+                        <div class="alert alert-danger" role="alert">
+                            Maaf, Anda tidak lulus. Skor Anda {{ session('score') }}%.
+                        </div>
+                    </div>
+                @endif
+            @else
+                <h1 class="selamat pt-4">Hi, {{ auth()->user()->nama }}!</h1>
+                <p class="datang m-0">Selamat datang di platform belajar online kami, tempat dimana pengetahuan dan pemahaman
+                    bertemu dengan teknologi untuk menciptakan pengalaman belajar yang menyenangkan dan efektif. Di sini,
+                    kami
+                    menyediakan akses ke berbagai materi pembelajaran yang dikurasi secara cermat, disampaikan melalui
+                    pengajaran interaktif, dan didukung oleh teknologi terkini. Mulai dari mata pelajaran akademik hingga
+                    keterampilan praktis, kami berkomitmen untuk mendukung perkembangan Anda dengan cara yang sesuai dan
+                    menarik. Bergabunglah dengan komunitas belajar kami dan jelajahi ragam sumber daya pendidikan yang
+                    dirancang
+                    untuk membantu Anda meraih kesuksesan di setiap langkah perjalanan pendidikan Anda.</p>
+            @endif
         </div>
         <div class="container sayaa">
             <div class="container saya rounded-4 m-0 p-0">
